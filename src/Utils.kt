@@ -28,6 +28,18 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
     .toString(16)
     .padStart(32, '0')
 
+fun Int.power(exponent: Int): Long {
+    var i = exponent
+    var result: Long = 1
+
+    while (i > 0) {
+        result *= this.toLong()
+        i--
+    }
+
+    return result
+}
+
 fun String.firstDigitChar(): Char = this.toCharArray().first { it.isDigit() }
 
 fun String.filterDigits(): String {
